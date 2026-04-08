@@ -3,49 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashma — Swym Application</title>
+  <title>Ashma Bhagad — Swym Application</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #0b0f1a;
       color: #f0f0f0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
     }
+
     .wrap { max-width: 680px; width: 100%; }
-    h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; color: #fff; }
-    p { font-size: 15px; color: #8a9ab5; margin-bottom: 1.5rem; line-height: 1.6; }
-    .footer { margin-top: 1.2rem; font-size: 13px; color: #3d4f65; }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+
+    .logo { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+    .logo span { color: #1D9E75; }
+
+    .badge {
+      font-size: 11px;
+      background: #0a2e22;
+      color: #1D9E75;
+      border: 1px solid #1D9E75;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #0a2e22;
+      border: 2px solid #1D9E75;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D9E75;
+      flex-shrink: 0;
+    }
+
+    .profile h1 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .profile p { font-size: 14px; color: #8a9ab5; line-height: 1.5; }
 
     .screen {
       width: 100%;
       aspect-ratio: 16/9;
-      border-radius: 10px;
+      border-radius: 12px;
       background: #111827;
       border: 1px solid #1e2d3d;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
     #start-btn {
       background: #1D9E75;
       color: #fff;
       border: none;
-      padding: 14px 36px;
+      padding: 13px 32px;
       border-radius: 999px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      letter-spacing: 0.02em;
     }
-    #start-btn:hover { background: #17856200; background: #178562; }
+    #start-btn:hover { background: #178562; }
     #start-hint { font-size: 13px; color: #3d4f65; }
 
     .number {
@@ -59,24 +103,65 @@
     .hint { font-size: 14px; color: #3d4f65; letter-spacing: 0.05em; }
 
     #countdown { display: none; }
-    #video-block { display: none; }
+    #video-block { display: none; margin-bottom: 20px; }
     #video-block iframe {
       width: 100%;
       aspect-ratio: 16/9;
-      border-radius: 10px;
+      border-radius: 12px;
       border: none;
       display: block;
     }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .tag {
+      font-size: 12px;
+      padding: 5px 13px;
+      border-radius: 999px;
+      border: 1px solid #1e2d3d;
+      color: #8a9ab5;
+      background: #111827;
+    }
+    .tag.green {
+      color: #1D9E75;
+      background: #0a2e22;
+      border-color: #1D9E75;
+    }
+
+    .footer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid #1e2d3d;
+    }
+    .footer-bar span { font-size: 12px; color: #3d4f65; }
+    .footer-bar a { font-size: 12px; color: #1D9E75; text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Hi Danica, I'm Ashma 👋</h1>
-    <p>Here's a short intro on why I think I'd be a great fit for the Swym team.</p>
+
+    <div class="top-bar">
+      <div class="logo">sw<span>y</span>m</div>
+      <div class="badge">L2.5 Technical Support Engineer</div>
+    </div>
+
+    <div class="profile">
+      <div class="avatar">AB</div>
+      <div>
+        <h1>Hi Danica, I'm Ashma 👋</h1>
+        <p>Here's a short intro on why I'd be a great fit for the Swym team.</p>
+      </div>
+    </div>
 
     <div id="start-screen" class="screen">
       <button id="start-btn" onclick="startCountdown()">▶ Play intro</button>
-      <span id="start-hint">3 minutes · with sound</span>
+      <span id="start-hint">3 min · with sound</span>
     </div>
 
     <div id="countdown" class="screen">
@@ -88,7 +173,22 @@
       <iframe id="yt" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     </div>
 
-    <p class="footer">Based in Dubai / Mumbai · Applying for Support Engineer · 2026</p>
+    <div class="tags">
+      <span class="tag green">JavaScript</span>
+      <span class="tag green">Shopify</span>
+      <span class="tag green">HTML / CSS</span>
+      <span class="tag">Full-Stack</span>
+      <span class="tag">REST APIs</span>
+      <span class="tag">Debugging</span>
+      <span class="tag">Customer Support</span>
+      <span class="tag">Remote-ready</span>
+    </div>
+
+    <div class="footer-bar">
+      <span>Dubai / Mumbai · 2026</span>
+      <a href="https://www.getswym.com" target="_blank">getswym.com</a>
+    </div>
+
   </div>
 
   <script>
@@ -102,7 +202,6 @@
         numEl.classList.remove('pop');
         void numEl.offsetWidth;
         numEl.classList.add('pop');
-
         if (count === 0) {
           document.getElementById('countdown').style.display = 'none';
           document.getElementById('video-block').style.display = 'block';
