@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asma — Swym Application</title>
+  <title>Ashma — Swym Application</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -19,7 +19,6 @@
     .wrap { max-width: 680px; width: 100%; }
     h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; color: #fff; }
     p { font-size: 15px; color: #8a9ab5; margin-bottom: 1.5rem; line-height: 1.6; }
-    video { width: 100%; border-radius: 10px; display: block; background: #111827; }
     .footer { margin-top: 1.2rem; font-size: 13px; color: #3d4f65; }
 
     #countdown {
@@ -41,15 +40,17 @@
       line-height: 1;
       transition: transform 0.15s ease;
     }
-    #countdown .number.pop {
-      transform: scale(1.25);
-    }
-    #countdown .hint {
-      font-size: 14px;
-      color: #3d4f65;
-      letter-spacing: 0.05em;
-    }
+    #countdown .number.pop { transform: scale(1.25); }
+    #countdown .hint { font-size: 14px; color: #3d4f65; letter-spacing: 0.05em; }
+
     #video-block { display: none; }
+    #video-block iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      border: none;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -63,9 +64,11 @@
     </div>
 
     <div id="video-block">
-      <video controls>
-        <source src="ashma-intro.mp4" type="video/mp4" />
-      </video>
+      <iframe
+        src="https://www.youtube.com/embed/HEQ1KKkj0AY?autoplay=1"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
     </div>
 
     <p class="footer">Based in Dubai / Mumbai · Applying for Support Engineer · 2026</p>
@@ -73,7 +76,6 @@
 
   <script>
     const numEl = document.getElementById('num');
-    const hintEl = document.querySelector('.hint');
     let count = 3;
 
     function tick() {
