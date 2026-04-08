@@ -64,11 +64,7 @@
     </div>
 
     <div id="video-block">
-      <iframe
-        src="https://www.youtube.com/embed/HEQ1KKkj0AY?autoplay=1&mute=0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-      </iframe>
+      <iframe id="yt" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     </div>
 
     <p class="footer">Based in Dubai / Mumbai · Applying for Support Engineer · 2026</p>
@@ -85,7 +81,9 @@
 
       if (count === 0) {
         document.getElementById('countdown').style.display = 'none';
-        document.getElementById('video-block').style.display = 'block';
+        const block = document.getElementById('video-block');
+        block.style.display = 'block';
+        document.getElementById('yt').src = 'https://www.youtube.com/embed/HEQ1KKkj0AY?autoplay=1&rel=0';
         return;
       }
 
