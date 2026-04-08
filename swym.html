@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asma — Swym Application</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0b0f1a;
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .wrap { max-width: 680px; width: 100%; }
+    h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; color: #fff; }
+    p { font-size: 15px; color: #8a9ab5; margin-bottom: 1.5rem; line-height: 1.6; }
+    video { width: 100%; border-radius: 10px; display: block; background: #111827; }
+    .footer { margin-top: 1.2rem; font-size: 13px; color: #3d4f65; }
+
+    #countdown {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      background: #111827;
+      border: 1px solid #1e2d3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    #countdown .number {
+      font-size: 6rem;
+      font-weight: 700;
+      color: #1D9E75;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+    #countdown .number.pop {
+      transform: scale(1.25);
+    }
+    #countdown .hint {
+      font-size: 14px;
+      color: #3d4f65;
+      letter-spacing: 0.05em;
+    }
+    #video-block { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hi Danica, I'm Ashma 👋</h1>
+    <p>Here's a short intro on why I think I'd be a great fit for the Swym team.</p>
+
+    <div id="countdown">
+      <div class="number" id="num">3</div>
+      <div class="hint">starting in a moment...</div>
+    </div>
+
+    <div id="video-block">
+      <video controls>
+        <source src="ashma-intro.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <p class="footer">Based in Dubai / Mumbai · Applying for Support Engineer · 2026</p>
+  </div>
+
+  <script>
+    const numEl = document.getElementById('num');
+    const hintEl = document.querySelector('.hint');
+    let count = 3;
+
+    function tick() {
+      numEl.classList.remove('pop');
+      void numEl.offsetWidth;
+      numEl.classList.add('pop');
+
+      if (count === 0) {
+        document.getElementById('countdown').style.display = 'none';
+        document.getElementById('video-block').style.display = 'block';
+        return;
+      }
+
+      numEl.textContent = count;
+      count--;
+      setTimeout(tick, 1000);
+    }
+
+    setTimeout(tick, 500);
+  </script>
+</body>
+</html>
