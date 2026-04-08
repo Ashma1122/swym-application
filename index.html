@@ -21,7 +21,7 @@
     p { font-size: 15px; color: #8a9ab5; margin-bottom: 1.5rem; line-height: 1.6; }
     .footer { margin-top: 1.2rem; font-size: 13px; color: #3d4f65; }
 
-    #countdown {
+    .screen {
       width: 100%;
       aspect-ratio: 16/9;
       border-radius: 10px;
@@ -31,18 +31,34 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
     }
-    #countdown .number {
+
+    #start-btn {
+      background: #1D9E75;
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+    #start-btn:hover { background: #17856200; background: #178562; }
+    #start-hint { font-size: 13px; color: #3d4f65; }
+
+    .number {
       font-size: 6rem;
       font-weight: 700;
       color: #1D9E75;
       line-height: 1;
       transition: transform 0.15s ease;
     }
-    #countdown .number.pop { transform: scale(1.25); }
-    #countdown .hint { font-size: 14px; color: #3d4f65; letter-spacing: 0.05em; }
+    .number.pop { transform: scale(1.25); }
+    .hint { font-size: 14px; color: #3d4f65; letter-spacing: 0.05em; }
 
+    #countdown { display: none; }
     #video-block { display: none; }
     #video-block iframe {
       width: 100%;
@@ -58,7 +74,12 @@
     <h1>Hi Danica, I'm Ashma 👋</h1>
     <p>Here's a short intro on why I think I'd be a great fit for the Swym team.</p>
 
-    <div id="countdown">
+    <div id="start-screen" class="screen">
+      <button id="start-btn" onclick="startCountdown()">▶ Play intro</button>
+      <span id="start-hint">3 minutes · with sound</span>
+    </div>
+
+    <div id="countdown" class="screen">
       <div class="number" id="num">3</div>
       <div class="hint">starting in a moment...</div>
     </div>
@@ -71,28 +92,29 @@
   </div>
 
   <script>
-    const numEl = document.getElementById('num');
-    let count = 3;
+    function startCountdown() {
+      document.getElementById('start-screen').style.display = 'none';
+      document.getElementById('countdown').style.display = 'flex';
+      let count = 3;
+      const numEl = document.getElementById('num');
 
-    function tick() {
-      numEl.classList.remove('pop');
-      void numEl.offsetWidth;
-      numEl.classList.add('pop');
+      function tick() {
+        numEl.classList.remove('pop');
+        void numEl.offsetWidth;
+        numEl.classList.add('pop');
 
-      if (count === 0) {
-        document.getElementById('countdown').style.display = 'none';
-        const block = document.getElementById('video-block');
-        block.style.display = 'block';
-        document.getElementById('yt').src = 'https://www.youtube.com/embed/HEQ1KKkj0AY?autoplay=1&rel=0';
-        return;
+        if (count === 0) {
+          document.getElementById('countdown').style.display = 'none';
+          document.getElementById('video-block').style.display = 'block';
+          document.getElementById('yt').src = 'https://www.youtube.com/embed/HEQ1KKkj0AY?autoplay=1&rel=0';
+          return;
+        }
+        numEl.textContent = count;
+        count--;
+        setTimeout(tick, 1000);
       }
-
-      numEl.textContent = count;
-      count--;
-      setTimeout(tick, 1000);
+      tick();
     }
-
-    setTimeout(tick, 500);
   </script>
 </body>
 </html>
