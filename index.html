@@ -9,8 +9,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0b0f1a;
-      color: #f0f0f0;
+      background: #f4faf0;
+      color: #1a1a1a;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -27,17 +27,28 @@
       margin-bottom: 36px;
     }
 
-    .logo { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
-    .logo span { color: #1D9E75; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+    }
 
     .badge {
       font-size: 11px;
-      background: #0a2e22;
-      color: #1D9E75;
-      border: 1px solid #1D9E75;
+      background: #e8f7e0;
+      color: #3a8a1a;
+      border: 1px solid #b2e090;
       padding: 4px 12px;
       border-radius: 999px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
 
     .profile {
@@ -51,26 +62,26 @@
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: #0a2e22;
-      border: 2px solid #1D9E75;
+      background: #e8f7e0;
+      border: 2px solid #7BC63E;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
-      color: #1D9E75;
+      color: #3a8a1a;
       flex-shrink: 0;
     }
 
-    .profile h1 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .profile p { font-size: 14px; color: #8a9ab5; line-height: 1.5; }
+    .profile h1 { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .profile p { font-size: 14px; color: #666; line-height: 1.5; }
 
     .screen {
       width: 100%;
       aspect-ratio: 16/9;
-      border-radius: 12px;
-      background: #111827;
-      border: 1px solid #1e2d3d;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid #d6efc8;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -80,7 +91,7 @@
     }
 
     #start-btn {
-      background: #1D9E75;
+      background: #7BC63E;
       color: #fff;
       border: none;
       padding: 13px 32px;
@@ -89,25 +100,25 @@
       font-weight: 600;
       cursor: pointer;
     }
-    #start-btn:hover { background: #178562; }
-    #start-hint { font-size: 13px; color: #3d4f65; }
+    #start-btn:hover { background: #68ad32; }
+    #start-hint { font-size: 13px; color: #aaa; }
 
     .number {
       font-size: 6rem;
       font-weight: 700;
-      color: #1D9E75;
+      color: #7BC63E;
       line-height: 1;
       transition: transform 0.15s ease;
     }
     .number.pop { transform: scale(1.25); }
-    .hint { font-size: 14px; color: #3d4f65; letter-spacing: 0.05em; }
+    .hint { font-size: 14px; color: #aaa; letter-spacing: 0.05em; }
 
     #countdown { display: none; }
     #video-block { display: none; margin-bottom: 20px; }
     #video-block iframe {
       width: 100%;
       aspect-ratio: 16/9;
-      border-radius: 12px;
+      border-radius: 16px;
       border: none;
       display: block;
     }
@@ -122,14 +133,14 @@
       font-size: 12px;
       padding: 5px 13px;
       border-radius: 999px;
-      border: 1px solid #1e2d3d;
-      color: #8a9ab5;
-      background: #111827;
+      border: 1px solid #d6efc8;
+      color: #666;
+      background: #fff;
     }
     .tag.green {
-      color: #1D9E75;
-      background: #0a2e22;
-      border-color: #1D9E75;
+      color: #3a8a1a;
+      background: #e8f7e0;
+      border-color: #b2e090;
     }
 
     .footer-bar {
@@ -137,17 +148,23 @@
       align-items: center;
       justify-content: space-between;
       padding-top: 16px;
-      border-top: 1px solid #1e2d3d;
+      border-top: 1px solid #d6efc8;
     }
-    .footer-bar span { font-size: 12px; color: #3d4f65; }
-    .footer-bar a { font-size: 12px; color: #1D9E75; text-decoration: none; }
+    .footer-bar span { font-size: 12px; color: #aaa; }
+    .footer-bar a { font-size: 12px; color: #7BC63E; text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="wrap">
 
     <div class="top-bar">
-      <div class="logo">sw<span>y</span>m</div>
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20 Q10 8 16 16 Q22 24 26 12" stroke="#7BC63E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M2 24 Q8 14 14 20 Q20 26 28 10" stroke="#b2e090" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+        </svg>
+        swym
+      </div>
       <div class="badge">L2.5 Technical Support Engineer</div>
     </div>
 
